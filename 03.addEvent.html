@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="loginBtn">Login</button>
+    <div id="myBox"></div>
+    <script>
+        const loginBtn = document.querySelector('.loginBtn');
+        loginBtn.addEventListener('click', function () {
+            const box = document.querySelector('#myBox');
+            const imgSrc = 'https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp/220px-Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp.png';
+            const width = '300px';
+
+
+            //要執行的程式碼寫 function 裡面
+            // alert('login btn clicked');
+            box.innerHTML = `<img src="${imgSrc}" style="width:${width};">`;
+        });
+
+    </script>
+</body>
+
+</html>

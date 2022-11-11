@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        h1 {
+            color: red;
+        }
+
+        #myBox {
+            font-size: 2rem;
+            color: rgb(22, 125, 25);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="myBox1">Hello World</h1>
+    <div id="myBox2" class="">
+        <ul>
+            <li class="box img-wrap">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        document.querySelector('.box.img-wrap').style.color = 'red';
+
+
+        // document.querySelector('h1').innerHTML = 'Hi Eason.';
+        // document.querySelector('h1').style.color = 'red';
+        // document.querySelector('h1').style.fontSize = '50px';
+
+        // document.querySelectorAll('.img-wrap')[0].innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp/220px-Pikachu_artwork_for_Pok%C3%A9mon_Red_and_Blue.webp.png" style="width:100px;">';
+        // document.querySelector('#myBox').style.backgroundColor = 'red';
+    </script>
+</body>
+
+</html>

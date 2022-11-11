@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const myObj = { shop1: 'value1', shop2: 'value2', shop3: 'value3' };
+
+        console.log('keys:', Object.keys(myObj)[1]);
+        console.log('value:', myObj[Object.keys(myObj)[1]]);
+
+        console.log('myObj values:', Object.values(myObj));
+        console.log('myObj entries:', Object.entries(myObj));
+        console.log('myObj entries length:', Object.entries(myObj).length);
+
+        // console.log('key1:', myObj['key1']);
+        // console.log('key2:', myObj.key2);
+        // myObj.key4 = 'value4'
+        // myObj.key1 = 'new value 1'
+
+        // console.log('myObj:', myObj);
+
+        // const myObj2 = { ...myObj, key5: 'new5' };
+
+        // myObj.key1 = 'newnew'
+
+        // delete myObj2.key2;
+
+        // console.log('myObj2', myObj2);
+
+
+        //如果我想取得對應 value，但我還不知道 key 的名稱，他可能是從伺服器來的某一筆字串資料。
+        // const keyFromServer = 'key3';
+
+        //取得 key 之後，再去問 myObj 有沒有對應的 value，如果有就印出來
+        //注意：這邊使用的是變數，而非剛剛的字串，所以中括號裡面沒有引號
+        // console.log('keyFromServer:', myObj[keyFromServer]);  
+    </script>
+</body>
+
+</html>
