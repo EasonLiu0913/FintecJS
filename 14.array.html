@@ -12,15 +12,28 @@
     <script>
         const myArray = ['My value1', 'My value2', 'My value3', 'My value4'];
 
-        console.log('value1:', myArray[0]);
-        console.log('value2:', myArray[1]);
-        console.log('value3:', myArray[2]);
+        myArray.push('value5');
 
+        myArray[6] = 'value6';
+
+        // console.log('value1:', myArray[0]);
+        // console.log('value2:', myArray[1]);
+        // console.log('value3:', myArray[2]);
+        myArray[0] = 'My new value1';
+
+        console.log('陣列:', myArray);
         console.log('陣列長度:', myArray.length);
 
         for (let i = 0; i < myArray.length; i++) {
             console.log('now value:', myArray[i]);
         }
+
+        const myArray2 = [3, 5, 1, 2]
+        const result = myArray2.splice(1, 0, 6, 7, 8);
+        console.log('result', result);
+        console.log('myArray2', myArray2);
+
+
     </script>
 </body>
 

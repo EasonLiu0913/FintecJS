@@ -10,7 +10,7 @@
 
 <body>
     <div class="all-menu-area">
-        <div id="mainMeal">
+        <!-- <div id="mainMeal">
             <button>1號餐</button>
             <button>2號餐</button>
             <button>3號餐</button>
@@ -19,7 +19,7 @@
             <button>A</button>
             <button>B</button>
             <button>C</button>
-        </div>
+        </div> -->
     </div>
     <div id="result">
         <p>主餐你點的是：<span id="mainMealResult"></span> </p>
@@ -39,49 +39,89 @@
         let mainMealPrice = 0;
         let sideMealPrice = 0;
 
+        fetch('http://127.0.0.1:5000/menu')
+            .then(r => r.json())
+            .then(data => {
+                console.log('data from server', data)
+                let allBtnDoms = '';
+                const dataKeys = Object.keys(data);
 
-        const allMenu = {
-            '1號餐': { 'name': '大麥克', 'price': 72 },
-            '2號餐': { 'name': '雙層牛肉吉事堡', 'price': 62 },
-            '3號餐': { 'name': '嫩煎雞腿堡', 'price': 82 },
-            'A': { 'name': '中薯+飲料', 'price': 55 },
-            'B': { 'name': '冰旋風+飲料', 'price': 85 },
-            'C': { 'name': '麥克雞塊+薯條+飲料', 'price': 100 }
-        }
+                for (let i = 0; i < Object.keys(data).length; i++) {
+                    console.log('dataKeys', dataKeys[i]);
+                    console.log('data', data[dataKeys[i]]);
+                    console.log('price', data[dataKeys[i]].price);
+                    // console.log(data);
+                    if (+data[dataKeys[i]].price < 90) {
+                        allBtnDoms += `<button>${dataKeys[i]}</button>`
+                    }
+                }
 
-        console.log('keys:', Object.keys(allMenu))
+                allMenuArea.innerHTML = allBtnDoms;
 
-        let allBtnDoms = '';
 
-        for (let i = 0; i < Object.keys(allMenu).length; i++) {
-            allBtnDoms += `<button>${Object.keys(allMenu)[i]}</button>`
-        }
 
-        allMenuArea.innerHTML = allBtnDoms;
+                allMenuArea.addEventListener('click', function (e) {
+                    console.log(e.target.innerText);
+                    // console.log('detail:', allMenu[e.target.innerText]);
+                    // console.log(parseInt(e.target.innerText));
 
-        allMenuArea.addEventListener('click', function (e) {
-            // console.log(e.target.innerText);
-            // console.log('detail:', allMenu[e.target.innerText]);
-            // console.log(parseInt(e.target.innerText));
+                    const btnText = e.target.innerText;
+                    // 是不是數字
+                    if (parseInt(e.target.innerText)) {
+                        mainMealPrice = data[btnText].price;
 
-            const btnText = e.target.innerText;
-            // 是不是數字
-            if (parseInt(e.target.innerText)) {
-                mainMealPrice = allMenu[btnText].price;
+                        // 主餐
+                        mainMealResult.innerHTML = `${data[btnText].name}, 價錢:${mainMealPrice}`;
+                    }
+                    else {
+                        // 副餐
+                        sideMealPrice = data[btnText].price;
 
-                // 主餐
-                mainMealResult.innerHTML = `${allMenu[btnText].name}, 價錢:${mainMealPrice}`;
-            }
-            else {
-                // 副餐
-                sideMealPrice = allMenu[btnText].price;
+                        // 副餐DOM
+                        sideMealResult.innerHTML = `${data[btnText].name}, 價錢:${sideMealPrice}`;
+                    }
 
-                // 副餐DOM
-                sideMealResult.innerHTML = `${allMenu[btnText].name}, 價錢:${sideMealPrice}`;
-            }
+                    totalPrice.innerHTML = mainMealPrice + sideMealPrice;
+                })
+            })
 
-            totalPrice.innerHTML = mainMealPrice + sideMealPrice;
-        })
+
+        // const allMenu = {
+        //     '1號餐': { 'name': '大麥克', 'price': 72 },
+        //     '2號餐': { 'name': '雙層牛肉吉事堡', 'price': 62 },
+        //     '3號餐': { 'name': '嫩煎雞腿堡', 'price': 82 },
+        //     'A': { 'name': '中薯+飲料', 'price': 55 },
+        //     'B': { 'name': '冰旋風+飲料', 'price': 85 },
+        //     'C': { 'name': '麥克雞塊+薯條+飲料', 'price': 100 }
+        // }
+
+        // console.log('keys:', Object.keys(allMenu))
+
+
+
+        // allMenuArea.addEventListener('click', function (e) {
+        //     // console.log(e.target.innerText);
+        //     // console.log('detail:', allMenu[e.target.innerText]);
+        //     // console.log(parseInt(e.target.innerText));
+
+        //     const btnText = e.target.innerText;
+        //     // 是不是數字
+        //     if (parseInt(e.target.innerText)) {
+        //         mainMealPrice = allMenu[btnText].price;
+
+        //         // 主餐
+        //         mainMealResult.innerHTML = `${allMenu[btnText].name}, 價錢:${mainMealPrice}`;
+        //     }
+        //     else {
+        //         // 副餐
+        //         sideMealPrice = allMenu[btnText].price;
+
+        //         // 副餐DOM
+        //         sideMealResult.innerHTML = `${allMenu[btnText].name}, 價錢:${sideMealPrice}`;
+        //     }
+
+        //     totalPrice.innerHTML = mainMealPrice + sideMealPrice;
+        // })
 
         // const mainMealMenu = { '1號餐': { 'name': '大麥克', 'price': 72 }, '2號餐': { 'name': '雙層牛肉吉事堡', 'price': 62 }, '3號餐': { 'name': '嫩煎雞腿堡', 'price': 82 } };
 

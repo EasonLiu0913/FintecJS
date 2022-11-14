@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input class="input1" type="text">
+    <select class="mathematicalSymbol" name="" id="">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input class="input2" type="text">
+    <span class="caculator">=</span>
+    <input class="result" type="text" name="" id="">
+
+    <script>
+        const input1 = document.querySelector('.input1')
+        const mathematicalSymbol = document.querySelector('.mathematicalSymbol')
+        const input2 = document.querySelector('.input2')
+        const caculator = document.querySelector('.caculator')
+        const result = document.querySelector('.result')
+
+        caculator.addEventListener('click', function () {
+            console.log('input1', input1.value);
+            console.log('input2', input2.value);
+            console.log('add', +input1.value + +input2.value);
+            console.log('mathematicalSymbol', mathematicalSymbol.value);
+
+            if (mathematicalSymbol.value === '+') {
+                result.value = +input1.value + +input2.value;
+            }
+            if (mathematicalSymbol.value === '-') {
+                result.value = +input1.value - +input2.value;
+            }
+            if (mathematicalSymbol.value === '*') {
+                result.value = +input1.value * +input2.value;
+            }
+            if (mathematicalSymbol.value === '/') {
+                result.value = +input1.value / +input2.value;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

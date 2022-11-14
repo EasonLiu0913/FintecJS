@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // var x = 20;
+        // let y = 20;
+
+        // {
+        //     var x = 40;
+        //     let y = 40;
+        // }
+
+        // function add() {
+        //     var x = 40;
+        //     let y = 40;
+        //     return x + y;
+        // }
+
+        // console.log('add()', add());
+
+        // console.log('x', x);
+        // console.log('y', y);
+
+        // console.log('y1', y);
+        // console.log(add(3, 4));
+
+        // console.log('y2', y);
+
+
+        let x = 10;
+
+        function level1(name) {
+            let x = 5;
+            function level2() {
+                x = x + 1;
+                console.log(name, x);
+            }
+
+            return level2;
+        }
+
+        const result = level1('result');
+        // console.log('res', );
+
+        result();
+        result();
+        result();
+
+        const result2 = level1('result2');
+        result2();
+
+        result();
+
+    </script>
+
+</body>
+
+</html>
